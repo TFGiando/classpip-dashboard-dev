@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./elementos.component.scss']
 })
 // testing behavior Github Desktop
-fsdfsdfsd
 export class ElementosComponent implements OnInit {
 
   constructor() { }
