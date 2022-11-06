@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ResponseContentType, Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 
 // Imports para abrir diálogo confirmar eliminar equipo
@@ -39,7 +39,7 @@ export class MisPuntosComponent implements OnInit {
     private sesion: SesionService,
     private peticionesAPI: PeticionesAPIService,
     public dialog: MatDialog,
-    private http: Http) { }
+    private http: HttpClient) { }
 
   ngOnInit() {
 

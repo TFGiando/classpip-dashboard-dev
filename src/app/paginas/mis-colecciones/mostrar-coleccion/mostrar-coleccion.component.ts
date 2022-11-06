@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material';
-import { ResponseContentType, Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { AgregarCromoDialogComponent } from '../agregar-cromo-dialog/agregar-cromo-dialog.component';
 import { EditarCromoDialogComponent } from '../editar-cromo-dialog/editar-cromo-dialog.component' ;
 import { DialogoConfirmacionComponent } from '../../COMPARTIDO/dialogo-confirmacion/dialogo-confirmacion.component';
@@ -59,7 +59,7 @@ export class MostrarColeccionComponent implements OnInit {
   constructor(
               public dialog: MatDialog,
               private location: Location,
-              private http: Http,
+              private http: HttpClient,
               private sesion: SesionService,
               private peticionesAPI: PeticionesAPIService
   ) { }

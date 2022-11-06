@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable, Subject , of } from 'rxjs';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { ResponseContentType, Http} from '@angular/http';
+import { HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
+
 
 
 
@@ -182,7 +182,7 @@ export class PeticionesAPIService {
 
   constructor(
     private http: HttpClient,
-    private httpImagenes: Http
+    private httpImagenes: HttpClient
   ) {
   }
 
@@ -282,7 +282,7 @@ export class PeticionesAPIService {
 
   public DameImagenAlumno(imagen: string): Observable<any> {
     return this.httpImagenes.get(this.APIUrlImagenAlumno + '/download/' + imagen,
-      { responseType: ResponseContentType.Blob });
+      { responseType: 'arraybuffer' });
   }
 
   public CreaAlumno(alumno: Alumno): Observable<Alumno> {
@@ -380,7 +380,7 @@ export class PeticionesAPIService {
 
   public DameLogoEquipo(logo: string): Observable<any> {
     return this.httpImagenes.get(this.APIUrlLogosEquipos + '/download/' + logo,
-      { responseType: ResponseContentType.Blob });
+      { responseType: 'arraybuffer' });
   }
 
   // public ModificaEquipo(equipo: Equipo, grupoId: number, equipoId: number): Observable<Equipo> {
@@ -505,7 +505,7 @@ export class PeticionesAPIService {
 
   public DameImagenInsignia(imagen: string): Observable<any> {
     return this.httpImagenes.get(this.APIUrlImagenInsignia + '/download/' + imagen,
-      { responseType: ResponseContentType.Blob });
+      { responseType: 'arraybuffer' });
   }
 
 
@@ -534,7 +534,7 @@ export class PeticionesAPIService {
 
   public DameImagenColeccion(imagen: string): Observable<any> {
     return this.httpImagenes.get(this.APIUrlImagenColeccion + '/download/' + imagen,
-      { responseType: ResponseContentType.Blob });
+      { responseType: 'arraybuffer'  });
   }
 
   public BorraColeccion(coleccionId: number, profesorId: number): Observable<any> {
@@ -552,7 +552,7 @@ export class PeticionesAPIService {
 
   public DameImagenCromo(imagen: string): Observable<any> {
     return this.httpImagenes.get(this.APIUrlImagenCromo + '/download/' + imagen,
-      { responseType: ResponseContentType.Blob });
+      {responseType: 'arraybuffer'  });
   }
 
   public ModificaCromoColeccion(cromo: Cromo, coleccionId: number, cromoId: number): Observable<Cromo> {
@@ -644,7 +644,7 @@ export class PeticionesAPIService {
 
   public DameImagenNivel(imagen: string): Observable<any> {
     return this.httpImagenes.get(this.APIUrlImagenNivel + '/download/' + imagen,
-      { responseType: ResponseContentType.Blob });
+      { responseType: 'arraybuffer'  });
   }
 
   public BorraImagenNivel(imagenNivel: string): Observable<any> {
@@ -1257,7 +1257,7 @@ public BorraInscripcionEquipoJuegoDeCompeticionTorneo(inscripcionId: number) {
 
   public DameImagenPregunta(imagen: string): Observable<any> {
     return this.httpImagenes.get(this.APIUrlImagenesPreguntas + '/download/' + imagen,
-      { responseType: ResponseContentType.Blob });
+      { responseType: 'arraybuffer'  });
   }
 
 
@@ -1536,7 +1536,7 @@ public BorraInscripcionEquipoJuegoDeCompeticionTorneo(inscripcionId: number) {
 
   public DameImagenAvatar(imagen: string): Observable<any> {
     return this.httpImagenes.get(this.APIUrlImagenesAvatares + '/download/' + imagen,
-      { responseType: ResponseContentType.Blob });
+      { responseType: 'arraybuffer'  });
   }
 
 
@@ -2284,7 +2284,7 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
   }
 
   public GetEscenasDeRecurso(containerName, fileName): Observable<any> {
-    return this.httpImagenes.get(this.urlimagenes  + '/' + containerName + '/download/' + fileName, { responseType: ResponseContentType.Blob });
+    return this.httpImagenes.get(this.urlimagenes  + '/' + containerName + '/download/' + fileName, { responseType: 'arraybuffer' });
   }
 
   public CambiaEstadoJuegoDeCuentos(juegoDePuntos: Juego, juegoDePuntosId: number, grupoId: number): Observable<Juego> {
@@ -2345,7 +2345,7 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
 
   public getImagenesRecurso(containerName, fileName): Observable<any> {
     // tslint:disable-next-line:max-line-length
-    return this.httpImagenes.get(this.APIurlImagenesCuentos  + '/' + containerName + '/download/' + fileName, { responseType: ResponseContentType.Blob });
+    return this.httpImagenes.get(this.APIurlImagenesCuentos  + '/' + containerName + '/download/' + fileName, { responseType: 'arraybuffer'  });
   }
 //
   public crearRecursosJuegoCuento(idLibro, recurso): Observable<any> {
@@ -2359,7 +2359,7 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
 
   public getEscenasDeRecurso(containerName, fileName): Observable<any> {
     // tslint:disable-next-line:max-line-length
-    return this.httpImagenes.get(this.urlimagenes  + '/' + containerName + '/download/' + fileName, { responseType: ResponseContentType.Blob });
+    return this.httpImagenes.get(this.urlimagenes  + '/' + containerName + '/download/' + fileName, { responseType: 'arraybuffer'  });
   }
 
   public borrarCarpeta(nombreCuento): Observable<any>{
@@ -2464,7 +2464,7 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
   
     public DameImagenFamiliaMemorama(imagen: string): Observable<any> {
       return this.httpImagenes.get(this.APIUrlImagenesFamiliaMemorama + '/download/' + imagen,
-        { responseType: ResponseContentType.Blob });
+        { responseType: 'arraybuffer'  });
     }
 
     public BorraFamiliaMemorama(familiaId: number, profesorId: number): Observable<any> {
@@ -2486,7 +2486,7 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
 
     public DameImagenCarta(imagen: string): Observable<any> {
       return this.httpImagenes.get(this.APIUrlImagenesCartasMemorama + '/download/' + imagen,
-        { responseType: ResponseContentType.Blob });
+        { responseType: 'arraybuffer'  });
     }
 
     public ModificaFamilia(familia: Familia): Observable<Familia> {

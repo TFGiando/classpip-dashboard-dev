@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ResponseContentType, Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 
 // Servicios
@@ -33,7 +33,7 @@ export class EditarInsigniaComponent implements OnInit {
   constructor(  private location: Location,
                 private sesion: SesionService,
                 private peticionesAPI: PeticionesAPIService,
-                private http: Http ) { }
+                private http: HttpClient ) { }
 
   ngOnInit() {
     this.insignia = this.sesion.DameInsignia();

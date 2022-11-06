@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { MatDialog, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 import { Carta, Coleccion, Familia } from 'src/app/clases';
@@ -40,7 +40,7 @@ export class MisFamiliasmemoramaComponent implements OnInit {
     public dialog: MatDialog,
     public sesion: SesionService,
     public peticionesAPI: PeticionesAPIService,
-    private http: Http
+    private http: HttpClient
   ) { }
 
   ngOnInit() {

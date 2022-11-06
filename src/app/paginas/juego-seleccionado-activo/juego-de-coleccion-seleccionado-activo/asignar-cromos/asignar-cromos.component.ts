@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
-import { ResponseContentType, Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 // Imports para abrir diálogo y swal
 import { MatDialog, MatTabChangeEvent} from '@angular/material';
@@ -113,7 +113,7 @@ export class AsignarCromosComponent implements OnInit {
                private calculos: CalculosService,
                private comService: ComServerService,
                public dialog: MatDialog,
-               private http: Http,
+               private http: HttpClient,
                public location: Location) { }
 
   ngOnInit() {

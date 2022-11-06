@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseContentType, Http, Response } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 // Clases
 import { Cromo, Coleccion, AlbumDelAlumno, Alumno, ParaAlbum } from '../../../../../clases/index';
@@ -41,7 +41,7 @@ export class AlbumDelAlumnoComponent implements OnInit {
                 private sesion: SesionService,
                 private peticionesAPI: PeticionesAPIService,
                 private location: Location,
-                private http: Http) { }
+                private http: HttpClient) { }
 
   ngOnInit() {
     this.coleccion = this.sesion.DameColeccion();
