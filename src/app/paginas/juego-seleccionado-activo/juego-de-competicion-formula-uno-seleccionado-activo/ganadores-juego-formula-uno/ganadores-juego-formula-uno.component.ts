@@ -65,6 +65,7 @@ export class GanadoresJuegoDeCompeticionFormulaUnoComponent implements OnInit {
   botonAsignarAleatorioDesactivado = true;
   botonAsignarManualDesactivado = true;
   botonAsignarPuntosDesactivado = true;
+  equiposRelacion: EquipoJuegoDeEvaluacion[];
 
 
   juegosDisponibles: Juego[];
@@ -85,7 +86,8 @@ export class GanadoresJuegoDeCompeticionFormulaUnoComponent implements OnInit {
   asignados: boolean;
 
 
-  constructor(public sesion: SesionService,
+  constructor(
+              public sesion: SesionService,
               public location: Location,
               public calculos: CalculosService,
               public peticionesAPI: PeticionesAPIService) { }

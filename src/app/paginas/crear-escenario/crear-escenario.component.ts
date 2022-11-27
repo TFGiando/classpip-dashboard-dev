@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ContentChild, OnInit, ElementRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -37,8 +37,8 @@ export interface OpcionSeleccionada {
 export class CrearEscenarioComponent implements OnInit {
 
   // Para el paso finalizar limpiar las variables y volver al mat-tab de "Lista de equipos"
-  @ViewChild('stepper') stepper;
-  @ViewChild('tabs') tabGroup: MatTabGroup;
+  @ContentChild('stepper', {static: false}) stepper;
+  @ContentChild('tabs', {static: false}) tabGroup !: ElementRef;
   myForm: FormGroup;
   myForm2: FormGroup;
 
