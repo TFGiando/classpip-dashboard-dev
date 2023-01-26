@@ -159,7 +159,7 @@ export class PeticionesAPIService {
 
   private APIUrlJuegoDeCuestionarioSatisfaccion = this.host + ':3000/api/juegosDeCuestionarioSatisfaccion';
   private APIUrlAlumnoJuegoDeCuestionarioSatisfaccion = this.host + ':3000/api/alumnosJuegoDeCuestionarioSatisfaccion';
-  private APIUrlJuegoDeEncuestaRapida = this.host + ':3000/api/juegosDeEncuestaRapida';
+  private APIUrlJuegoDeEncuestaRapida = this.host + ':3001/api/v2/juegoEncuestaRapida';
   private APIUrlJuegoDeVotacionRapida = this.host + ':3000/api/juegosDeVotacionRapida';
   private APIUrlJuegoDeCuestionarioRapido = this.host + ':3001/api/v2/juegoCuestionarioRapido';
   private APIUrlJuegoDeCogerTurnoRapido = this.host + ':3000/api/juegosDeCogerTurnoRapido';
@@ -2065,12 +2065,12 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
   }
 
   public CreaJuegoDeEncuestaRapida(juego: JuegoDeEncuestaRapida): Observable<JuegoDeEncuestaRapida> {
-    return this.http.post<JuegoDeEncuestaRapida>(this.APIUrlProfesores + '/' + juego.profesorId + '/juegosDeEncuestaRapida', juego);
+    return this.http.post<JuegoDeEncuestaRapida>(this.APIUrlJuegoDeEncuestaRapida + '/', juego);
   }
 
   public DameJuegosDeEncuestaRapida(profesorId: number): Observable<JuegoDeEncuestaRapida[]> {
    
-    return this.http.get<JuegoDeEncuestaRapida[]>(this.APIUrlProfesores + '/' + profesorId + '/juegosDeEncuestaRapida');
+    return this.http.get<JuegoDeEncuestaRapida[]>(this.APIUrlJuegoDeEncuestaRapida + '/profesor/' + profesorId);
   }
 
   public BorraJuegoDeEncuestaRapida(juegoId: number): Observable<JuegoDeEncuestaRapida> {
@@ -2085,7 +2085,7 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
 
   public ModificarJuegoDeEncuestaRapida(juego: JuegoDeEncuestaRapida): Observable<JuegoDeEncuestaRapida> {
     // tslint:disable-next-line:max-line-length
-    return this.http.put<JuegoDeEncuestaRapida>(this.APIUrlJuegoDeEncuestaRapida, juego);
+    return this.http.put<JuegoDeEncuestaRapida>(this.APIUrlJuegoDeEncuestaRapida + '/', juego);
   }
 
   public CreaJuegoDeVotacionRapida(juego: JuegoDeVotacionRapida): Observable<JuegoDeVotacionRapida> {
