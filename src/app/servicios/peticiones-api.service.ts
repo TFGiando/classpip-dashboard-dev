@@ -2080,7 +2080,7 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
   //JUEGO DE VOTACIÓN RÁPIDA
 
   public DameJuegoDeVotacionRapida(juegoDeVotacionRapidaID: number): Observable<JuegoDeVotacionRapida> {
-    return this.http.get<JuegoDeVotacionRapida>(this.APIUrlJuegoDeVotacionRapida + '/' + juegoDeVotacionRapidaID);
+    return this.http.get<JuegoDeVotacionRapida>('http://localhost:3001/api/v2/juegoVotacionRapida' + '/'+ juegoDeVotacionRapidaID);
   }
 
   public ModificarJuegoDeEncuestaRapida(juego: JuegoDeEncuestaRapida): Observable<JuegoDeEncuestaRapida> {
@@ -2089,20 +2089,20 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
   }
 
   public CreaJuegoDeVotacionRapida(juego: JuegoDeVotacionRapida): Observable<JuegoDeVotacionRapida> {
-    return this.http.post<JuegoDeVotacionRapida>(this.APIUrlProfesores + '/' + juego.profesorId + '/juegosDeVotacionRapida', juego);
+    return this.http.post<JuegoDeVotacionRapida>('http://localhost:3001/api/v2/juegoVotacionRapida' + '/', juego);
   }
 
   public DameJuegosDeVotacionRapida(profesorId: number): Observable<JuegoDeVotacionRapida[]> {
-    return this.http.get<JuegoDeVotacionRapida[]>(this.APIUrlProfesores + '/' + profesorId + '/juegosDeVotacionRapida');
+    return this.http.get<JuegoDeVotacionRapida[]>('http://localhost:3001/api/v2/juegoVotacionRapida/profesor' + '/'+ profesorId );
   }
 
   public BorraJuegoDeVotacionRapida(juegoId: number): Observable<JuegoDeVotacionRapida> {
-    return this.http.delete<JuegoDeVotacionRapida>(this.APIUrlJuegoDeVotacionRapida + '/' + juegoId);
+    return this.http.delete<JuegoDeVotacionRapida>('http://localhost:3001/api/v2/juegoVotacionRapida' + '/' + juegoId);
   }
 
   public ModificarJuegoVotacionRapida(juego: JuegoDeVotacionRapida): Observable<JuegoDeVotacionRapida> {
     // tslint:disable-next-line:max-line-length
-    return this.http.put<JuegoDeVotacionRapida>(this.APIUrlJuegoDeVotacionRapida, juego);
+    return this.http.put<JuegoDeVotacionRapida>('http://localhost:3001/api/v2/juegoVotacionRapida', juego);
   }
 
   //JUEGO DE CUESTIONARIO RÁPIDO
@@ -2131,15 +2131,15 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
   //JUEGO DE COGER TURNO RÁPIDO
 
   public DameJuegoDeCogerTurnoRapido(juegoDeCogerTurnoRapidoID: number): Observable<JuegoDeCogerTurnoRapido> {
-    return this.http.get<JuegoDeCogerTurnoRapido>(this.APIUrlJuegoDeCogerTurnoRapido + '/' + juegoDeCogerTurnoRapidoID);
+    return this.http.get<JuegoDeCogerTurnoRapido>( 'http://localhost:3001/api/v2/juegoCogerTurnoRapido' + '/' + juegoDeCogerTurnoRapidoID);
   }
 
   public CreaJuegoDeCogerTurnoRapido(juego: JuegoDeCogerTurnoRapido): Observable<JuegoDeCogerTurnoRapido> {
-    return this.http.post<JuegoDeCogerTurnoRapido>(this.APIUrlProfesores + '/' + juego.profesorId + '/juegosDeCogerTurnoRapido', juego);
+    return this.http.post<JuegoDeCogerTurnoRapido>('http://localhost:3001/api/v2/juegoCogerTurnoRapido' + '/' , juego);
   }
 
   public DameJuegosDeCogerTurnoRapido(profesorId: number): Observable<JuegoDeCogerTurnoRapido[]> {
-    return this.http.get<JuegoDeCogerTurnoRapido[]>(this.APIUrlProfesores + '/' + profesorId + '/juegosDeCogerTurnoRapido');
+    return this.http.get<JuegoDeCogerTurnoRapido[]>('http://localhost:3001/api/v2/juegoCogerTurnoRapido' + '/' + profesorId + '/juegosDeCogerTurnoRapido');
   }
 
   public BorraJuegoDeCogerTurnoRapido(juegoId: number): Observable<JuegoDeCogerTurnoRapido> {
