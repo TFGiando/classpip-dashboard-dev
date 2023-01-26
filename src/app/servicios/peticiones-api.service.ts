@@ -161,7 +161,7 @@ export class PeticionesAPIService {
   private APIUrlAlumnoJuegoDeCuestionarioSatisfaccion = this.host + ':3000/api/alumnosJuegoDeCuestionarioSatisfaccion';
   private APIUrlJuegoDeEncuestaRapida = this.host + ':3000/api/juegosDeEncuestaRapida';
   private APIUrlJuegoDeVotacionRapida = this.host + ':3000/api/juegosDeVotacionRapida';
-  private APIUrlJuegoDeCuestionarioRapido = this.host + ':3000/api/juegosDeCuestionarioRapido';
+  private APIUrlJuegoDeCuestionarioRapido = this.host + ':3001/api/v2/juegoCuestionarioRapido';
   private APIUrlJuegoDeCogerTurnoRapido = this.host + ':3000/api/juegosDeCogerTurnoRapido';
 
   private APIUrlJuegoDeControlDeTrabajoEnEquipo = this.host + ':3000/api/juegosDeControlDeTrabajoEnEquipo';
@@ -2108,15 +2108,15 @@ public ModificaInscripcionAlumnoJuegoDeVotacionAOpciones(inscripcion: AlumnoJueg
   //JUEGO DE CUESTIONARIO RÁPIDO
 
   public DameJuegoDeCuestionarioRapido(juegoDeCuestionarioRapidoID: number): Observable<JuegoDeCuestionarioRapido> {
-    return this.http.get<JuegoDeCuestionarioRapido>(this.APIUrlJuegoDeAvatar + '/' + juegoDeCuestionarioRapidoID);
+    return this.http.get<JuegoDeCuestionarioRapido>(this.APIUrlJuegoDeCuestionarioRapido + '/' + juegoDeCuestionarioRapidoID);
   }
 
   public CreaJuegoDeCuestionarioRapido(juego: JuegoDeCuestionarioRapido): Observable<JuegoDeCuestionarioRapido> {
-    return this.http.post<JuegoDeCuestionarioRapido>(this.APIUrlProfesores + '/' + juego.profesorId + '/juegosDeCuestionarioRapido', juego);
+    return this.http.post<JuegoDeCuestionarioRapido>(this.APIUrlJuegoDeCuestionarioRapido + "/", juego);
   }
 
   public DameJuegosDeCuestionarioRapido(profesorId: number): Observable<JuegoDeCuestionarioRapido[]> {
-    return this.http.get<JuegoDeCuestionarioRapido[]>(this.APIUrlProfesores + '/' + profesorId + '/juegosDeCuestionarioRapido');
+    return this.http.get<JuegoDeCuestionarioRapido[]>(this.APIUrlJuegoDeCuestionarioRapido + "/profesor/" + profesorId);
   }
 
   public BorraJuegoDeCuestionarioRapido(juegoId: number): Observable<JuegoDeCuestionarioRapido> {
