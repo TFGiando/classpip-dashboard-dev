@@ -47,6 +47,8 @@ export class CrearFamiliaImagenesPerfilComponent implements OnInit {
     reader.readAsDataURL(file);
     reader.onload = () => {
 
+      const timestamp = Date.now();
+      this.nombreFamilia = timestamp + "_" + this.nombreFamilia;
       console.log('ya he cargado la imagen de la coleccion');
       this.imagenesCargadas = true;
       this.imagenFamilia = reader.result.toString();
@@ -58,9 +60,11 @@ export class CrearFamiliaImagenesPerfilComponent implements OnInit {
     const imagenes = [];
     let cont = 0;
     this.ficherosFamilia.forEach(imagen => {
+      const extension = imagen.name.split(".").pop();
       const formData = new FormData();
-      imagenes.push (imagen.name);
-      formData.append(imagen.name, imagen);
+      imagenes.push (this.nombreFamilia+"."+extension);
+      formData.append(imagen.name, imagen, this.nombreFamilia+"."+extension);
+      console.log("ESTA ES LA IMAGEN"+  this.nombreFamilia);
       this.peticionesAPI.PonImagenPerfil(formData)
       .subscribe(() => {
         cont++;
